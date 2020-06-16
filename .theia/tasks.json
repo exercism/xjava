@@ -1,0 +1,98 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate Readmes",
+            "type": "shell",
+            "command": "configlet",
+            "args": [
+                "generate",
+                "${workspaceFolder}", 
+                "--spec-path",
+                "/home/gitpod/specs"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Add new exercise",
+            "type": "shell",
+            "command": "configlet",
+            "args": [
+                "generate",
+                "${workspaceFolder}", 
+                "--only",
+                "${input:exercise-name}",
+                "--spec-path",
+                "/home/gitpod/specs"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Check style",
+            "type": "shell",
+            "command": "${workspaceFolder}/gradlew",
+            "args": [
+                "check",
+                "--parallel",
+                "--continue"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/exercises"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run unit tests",
+            "type": "shell",
+            "command": "${workspaceFolder}/gradlew",
+            "args": [
+                "check",
+                "compileStarterSourceJava", 
+                "--parallel",
+                "--continue"
+            ],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/exercises"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run journey",
+            "type": "shell",
+            "command": "${workspaceFolder}/bin/journey-test.sh",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "exercise-name",
+            "description": "Name of a specific exercise"
+        }
+    ]
+}

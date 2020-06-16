@@ -1,0 +1,10 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: cd exercises && ../gradlew # start the daemon
+  - init: git --git-dir=/home/gitpod/specs/.git pull origin master # Update master of specs
+
+github:
+  prebuilds:
+    addCheck: false
