@@ -29,6 +29,20 @@
       ]
     },
     {
+      "slug": "high-scores",
+      "uuid": "574d6323-5ff5-4019-9ebe-0067daafba13",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "classes",
+        "arrays",
+        "conditionals",
+        "loops",
+        "integers"
+      ]
+    },
+    {
       "slug": "reverse-string",
       "uuid": "2c8afeed-480e-41f3-ad58-590fa8f88029",
       "core": false,
