@@ -1,8 +1,8 @@
-import java.util.Arrays;
 import java.util.Random;
 
 class DnDCharacter {
 
+    private final Random random;
     private int strength;
     private int dexterity;
     private int constitution;
@@ -12,6 +12,7 @@ class DnDCharacter {
     private int hitpoints;
 
     DnDCharacter() {
+        random = new Random();
         this.strength = ability();
         this.dexterity = ability();
         this.constitution = ability();
@@ -22,12 +23,14 @@ class DnDCharacter {
     }
 
     int ability() {
-        int[] scores = rollDices();
-        int scoreSum = 0;
-        for (int i = 1; i < 4; i++) {
-            scoreSum += scores[i];
-        }
-        return scoreSum;
+        // Throw four dice
+        int a = random.nextInt(6) + 1;
+        int b = random.nextInt(6) + 1;
+        int c = random.nextInt(6) + 1;
+        int d = random.nextInt(6) + 1;
+        // Sum the largest three
+        int min = Math.min(Math.min(a, b), Math.min(c, d));
+        return a + b + c + d - min;
     }
 
     int modifier(int constitution) {
@@ -61,16 +64,4 @@ class DnDCharacter {
     int getHitpoints() {
         return hitpoints;
     }
-
-    private int[] rollDices() {
-        int[] scoreSum = new int[4];
-        Random random = new Random();
-        for (int i = 0; i < 4; i++) {
-            int score = random.nextInt(6) + 1;
-            scoreSum[i] = score;
-        }
-        Arrays.sort(scoreSum);
-        return scoreSum;
-    }
-
 }
