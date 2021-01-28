@@ -20,9 +20,3 @@
 
 # disallow second strand longer
 "8a2d4ed0-ead5-4fdd-924d-27c4cf56e60e" = true
-
-# disallow left empty strand
-"5dce058b-28d4-4ca7-aa64-adfe4e17784c" = true
-
-# disallow right empty strand
-"38826d4b-16fb-4639-ac3e-ba027dec8b5f" = true
